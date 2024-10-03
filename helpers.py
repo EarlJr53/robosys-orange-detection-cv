@@ -112,7 +112,7 @@ def get_ground_truth_ann(image_name=None, show=False):
         image_name = 'orange'
 
     # Load the COCO dataset
-    annotation_file = '.\\coco-annotations\\' + image_name + '_annotation.json'
+    annotation_file = './coco-annotations/' + image_name + '_annotation.json'
     coco = COCO(annotation_file)
 
     # Get all image IDs and choose one image
@@ -134,7 +134,7 @@ def get_ground_truth_ann(image_name=None, show=False):
         bboxes.append([bb[0], bb[1], bb[0] + bb[2], bb[1] + bb[3]])
 
     if show:
-        img = cv.imread('.\\img\\' + image_name + '.jpg')
+        img = cv.imread('./img/' + image_name + '.jpg')
         img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         plt.imshow(img)
         coco.showAnns(anns, draw_bbox=True)
